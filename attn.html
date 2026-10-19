@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSLG Attendance</title>
+    <link rel="stylesheet" href="at.css">
+</head>
+
+<body>
+    <h1>SSLG Members</h1>
+
+    <label for="addMember">Add member card</label>
+    <input type="text" id="addMember" name="add-member" placeholder="Enter member card" required>
+    <button id="addBtn" type="button">Add Member</button>
+
+    <br><br>
+
+    <center>
+        <div id="reader" style="width: 500px; height: 500px;"></div>
+        <div id="results"></div>
+
+        <br><br>
+
+        <button id="clear" type="button" onclick="clearAttendance()">
+            Clear Attendance
+        </button>
+    </center>
+
+    <br>
+
+    <label for="searchBar">Search/Delete attendance record</label>
+    <input type="text" name="searchBar" id="searchBar">
+
+    <button id="search" type="button" onclick="searchMembers(document.getElementById('searchBar').value.trim())">
+        Search⌕
+    </button>
+    <button id="search" type="button" onclick="deleteattendance(document.getElementById('searchBar').value.trim())">
+        Delete
+    </button>
+
+    <br><br>
+
+    <table id="attendance-table" border="1">
+        <thead>
+            <tr>
+                <th>Member Card</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Attendance records appear here -->
+        </tbody>
+    </table>
+
+    <br>
+
+    <table id="members-table" border="1">
+        <thead>
+            <tr>
+                <th>Member Card</th>
+                <th>QR Code</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Member records appear here -->
+        </tbody>
+    </table>
+
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="at.js"></script>
+
+</body>
+
+</html>
